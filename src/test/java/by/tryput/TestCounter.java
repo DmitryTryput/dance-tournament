@@ -15,7 +15,11 @@ public class TestCounter {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(
                 10, 8, 6, 4, 2, 6, 1, 3, 5, 7, 9
         ));
-        assertThat(PerformedElementsCounter.countElements(list), equalTo(60));
+
+        DanceFloor danceFloor = new DanceFloor(list);
+        danceFloor.dance();
+
+        assertThat(danceFloor.getResult(), equalTo(60));
     }
 
     @Test
@@ -23,7 +27,9 @@ public class TestCounter {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(
                 2, 1, 1
         ));
-        assertThat(PerformedElementsCounter.countElements(list), equalTo(-1));
+        DanceFloor danceFloor = new DanceFloor(list);
+        danceFloor.dance();
+        assertThat(danceFloor.getResult(), equalTo(-1));
     }
 
     @Test
@@ -31,6 +37,8 @@ public class TestCounter {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(
                 2, 0, 7
         ));
-        assertThat(PerformedElementsCounter.countElements(list), equalTo(4));
+        DanceFloor danceFloor = new DanceFloor(list);
+        danceFloor.dance();
+        assertThat(danceFloor.getResult(), equalTo(4));
     }
 }

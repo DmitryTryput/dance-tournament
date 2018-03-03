@@ -7,7 +7,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class TestSequenceGenerator {
+public class TestDanceFloor {
 
     @Test
     public void testSequenceCreation() {
