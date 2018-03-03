@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class TestCounter {
+public class TestDanceProgram {
 
     @Test
     public void testPerform() {
@@ -16,10 +16,10 @@ public class TestCounter {
                 10, 8, 6, 4, 2, 6, 1, 3, 5, 7, 9
         ));
 
-        DanceFloor danceFloor = new DanceFloor(list);
-        danceFloor.dance();
+        DanceProgram danceProgram = new DanceProgram(list);
+        danceProgram.dance();
 
-        assertThat(danceFloor.getResult(), equalTo(60));
+        assertThat(danceProgram.getResult(), equalTo(60));
     }
 
     @Test
@@ -27,9 +27,9 @@ public class TestCounter {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(
                 2, 1, 1
         ));
-        DanceFloor danceFloor = new DanceFloor(list);
-        danceFloor.dance();
-        assertThat(danceFloor.getResult(), equalTo(-1));
+        DanceProgram danceProgram = new DanceProgram(list);
+        danceProgram.dance();
+        assertThat(danceProgram.getResult(), equalTo(-1));
     }
 
     @Test
@@ -37,8 +37,8 @@ public class TestCounter {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(
                 2, 0, 7
         ));
-        DanceFloor danceFloor = new DanceFloor(list);
-        danceFloor.dance();
-        assertThat(danceFloor.getResult(), equalTo(4));
+        DanceProgram danceProgram = new DanceProgram(list);
+        danceProgram.dance();
+        assertThat(danceProgram.getResult(), equalTo(4));
     }
 }

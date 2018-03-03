@@ -3,28 +3,28 @@ package by.tryput;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DanceFloor {
+public class DanceProgram {
 
     private static final int UNINTERESTING_VIEW = -1;
 
-    private List<Integer> sequence = new ArrayList<>();
+    private List<Integer> sequence;
     private List<Integer> passedPoints = new ArrayList<>();
     private int position;
     private int steps;
     private boolean canDance = true;
 
-    public DanceFloor(List<Integer> sequence) {
-        this.sequence.addAll(sequence);
-    }
-
-    public int getResult() {
-        return steps;
+    public DanceProgram(List<Integer> sequence) {
+        this.sequence = sequence;
     }
 
     public void dance() {
+        if (sequence.isEmpty()) {
+            throw new ForgotMovesException("Dancer forgot his moves...");
+        }
         while (canDance) {
             move();
         }
+        passedPoints.clear();
         position = 0;
     }
 
@@ -69,7 +69,19 @@ public class DanceFloor {
         return false;
     }
 
+    private void addNewSequence(List<Integer> newSequence) {
+        sequence.clear();
+        sequence.addAll(newSequence);
+    }
     private boolean isEven(int number) {
         return number % 2 == 0;
+    }
+
+    public List<Integer> getSequence() {
+        return sequence;
+    }
+
+    public int getResult() {
+        return steps;
     }
 }
